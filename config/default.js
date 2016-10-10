@@ -2,7 +2,6 @@
 
 var _ = require('lodash')
 var glob = require('glob')
-var path = require('path')
 
 var getGlobbedPaths = function (globPatterns, excludes) {
   // URL paths regex
@@ -62,21 +61,21 @@ var initGlobalConfig = function () {
   // Validate NODE_ENV existence
   validateEnvironmentVariable()
 
-  var defaultAssets = require(path.join(process.cwd(), 'config/assets/default'))
-  var environmentAssets = require(path.join(process.cwd(), 'config/assets/', process.env.NODE_ENV)) || {}
+  var defaultAssets = require('./assets/default')
+  var environmentAssets = require('./assets/' + process.env.NODE_ENV) || {}
   var assets = _.merge(defaultAssets, environmentAssets)
 
   // Get the default config
-  var defaultConfig = require(path.join(process.cwd(), 'config/env/default'))
+  var defaultConfig = require('./env/default')
   var environmentConfig = {}
   var localDefaultConfig = {}
   try {
-    environmentConfig = require(path.join(process.cwd(), 'config/env/', process.env.NODE_ENV)) || {}
+    environmentConfig = require('./env/' + process.env.NODE_ENV) || {}
   } catch (e) {
     //
   }
   try {
-    localDefaultConfig = require(path.join(process.cwd(), 'config/env/', 'local/default')) || {}
+    localDefaultConfig = require('./env/' + 'local/default') || {}
   } catch (e) {
     //
   }

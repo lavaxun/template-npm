@@ -1,4 +1,4 @@
 'use strict'
 
-var module = require('./config/loader')
-module.exports = module.initialize()
+var moduleLoader = require('./config/loader')
+module.exports = moduleLoader.initialize()
