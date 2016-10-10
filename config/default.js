@@ -4,9 +4,6 @@ var _ = require('lodash')
 var glob = require('glob')
 var path = require('path')
 
-/**
- * Get files by glob patterns
- */
 var getGlobbedPaths = function (globPatterns, excludes) {
   // URL paths regex
   var urlRegex = new RegExp(/^(?:[a-z]+:)?\/\//, 'i')
@@ -45,9 +42,6 @@ var getGlobbedPaths = function (globPatterns, excludes) {
   return output
 }
 
-/**
- * Validate NODE_ENV existence
- */
 var validateEnvironmentVariable = function () {
   var environmentFiles = glob.sync('./config/env/' + process.env.NODE_ENV + '.js')
   if (!environmentFiles.length) {
@@ -55,9 +49,6 @@ var validateEnvironmentVariable = function () {
   }
 }
 
-/**
- * Initialize global configuration files
- */
 var initGlobalConfigFiles = function (config, assets) {
   // Appending files
   config.files = {
@@ -67,9 +58,6 @@ var initGlobalConfigFiles = function (config, assets) {
   config.files.module = getGlobbedPaths(assets.module.allJS)
 }
 
-/**
- * Initialize global configuration
- */
 var initGlobalConfig = function () {
   // Validate NODE_ENV existence
   validateEnvironmentVariable()
@@ -105,7 +93,4 @@ var initGlobalConfig = function () {
   return config
 }
 
-/**
- * Set configuration object
- */
 module.exports = initGlobalConfig()

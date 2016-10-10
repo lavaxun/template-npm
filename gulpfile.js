@@ -31,6 +31,32 @@ gulp.task('env:dev', function () {
   process.env.NODE_ENV = 'development'
 })
 
+gulp.task('jsdoc', function () {
+  var includeReadme = _.union(['README.md'], defaultAssets.module.allJS)
+  // var includeReadme = _.union([], defaultAssets.module.allJS)
+
+  return gulp.src(includeReadme, {read: false})
+    .pipe(plugins.jsdoc3({
+      opts: {
+        destination: './docs/module',
+        template: 'node_modules/docdash'
+      },
+      plugins: [
+        'plugins/markdown',
+        'plugins/summarize'
+      ],
+      templates: {
+        'default': {
+          'includeDate': false
+        }
+      },
+      docdash: {
+        'static': true,
+        'sort': true
+      }
+    }))
+})
+
 // ESLint JS linting task
 gulp.task('eslint', function () {
   var assets = _.union(
@@ -124,4 +150,8 @@ gulp.task('test:once', function (done) {
 
 gulp.task('bdd', function (done) {
   runSequence('env:test', 'load:config', ['mocha:live'], 'watch:test', done)
+})
+
+gulp.task('gen:doc', function (done) {
+  runSequence('env:dev', 'load:config', ['eslint'], 'jsdoc', done)
 })

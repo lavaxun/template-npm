@@ -1,4 +1,5 @@
-# Micromodules Starter template [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/axnux/template-svc/issues)  
+# Micromodules Starter template  
+[![wercker status](https://app.wercker.com/status/c1e74e4cdb91619638752c7cd5f625cc/s/master "wercker status")](https://app.wercker.com/project/byKey/c1e74e4cdb91619638752c7cd5f625cc) [![Dependency Status](https://gemnasium.com/badges/github.com/axnux/template-npm.svg)](https://gemnasium.com/github.com/axnux/template-npm) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/axnux/template-svc/issues)  
 
 An *experimental* nodejs BDD scaffolding for micromodules  
 Optional support for **Docker** through **Wercker**  

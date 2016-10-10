@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "gulp dev:test",
     "test": "gulp test:once",
-    "bdd": "gulp bdd"
+    "bdd": "gulp bdd",
+    "jsdoc": "gulp gen:doc"
   },
   "keywords": [
     "template",
@@ -18,11 +19,13 @@
     "lodash": "~4.16.2"
   },
   "devDependencies": {
-    "gulp": "~3.9.1",
     "chai": "~3.5.0",
+    "docdash": "^0.4.0",
     "eslint": "~3.4.0",
+    "gulp": "~3.9.1",
     "gulp-eslint": "~3.0.1",
     "gulp-istanbul": "~1.1.1",
+    "gulp-jsdoc3": "^1.0.0",
     "gulp-load-plugins": "~1.2.4",
     "gulp-mocha": "~3.0.0",
     "istanbul": "~0.4.4",

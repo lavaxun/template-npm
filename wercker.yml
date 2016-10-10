@@ -1,28 +1,27 @@
 box:
   id: node:6
 
-# wercker dev --expose-ports=true
-dev: #NODE_ENV=development
-  box:
-    id: node:6
-    ports:
-      - "1337"  # chrome UI for debugging
-      - "5858"  # port for node-inspector debugging socket
+dev:
   steps:
     - npm-install
-    # you have two options for local development
-    # # 1. Run in local development debugging mode. auto re-run on files changes
+    # you have three options for local development
+    # # 1. Run in local development mode.
     - script:
         name: start dev environment
-        code: npm run dev:debug
+        code: npm run dev #NODE_ENV=development
 
-    # # 2. run in BDD mode. auto re-run test cases on file changes
+    # # 2. Run in local testing mode.
+    - script:
+        name: start test environment
+        code: npm test #NODE_ENV=test
+
+    # # 3. run in BDD mode. auto re-run test cases on file changes
     # - script:
     #     name: start bdd environment
-    #     code: npm run bdd
+    #     code: npm run bdd #NODE_ENV=test
 
 # wercker build
-build: #NODE_ENV=development
+build: #NODE_ENV=test
   steps:
     - npm-install
     - npm-test
