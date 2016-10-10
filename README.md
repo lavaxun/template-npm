@@ -16,7 +16,7 @@ Optional support for **Docker** through **Wercker**
    - **TEST** - execute `npm test` and execute your test cases once terminal  
        *Note: same as the above dev mode*  
        *except it will load configuration from `config/env/default.js` and `config/env/test.js`.*  
-       [See more](#config-config-merging)
+       [See more](#config--config-merging)
    - **BDD** - execute `npm run bdd` and keep running test cases in terminal  
        *Note: same as the above test mode*  
        *this will keep your code running continuous testing.*  
