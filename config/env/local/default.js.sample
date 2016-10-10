@@ -1,0 +1,14 @@
+'use strict'
+
+// rename this file to default.js
+// this file will not be added into git
+// it is safe for you to store your secret credentials
+
+// use your actual secret key id and secret access key
+module.exports = {
+  s3Options: {
+    accessKeyId: 'YOUR_ACTUAL_ACCESS_KEY_ID',
+    secretAccessKey: 'YOUR_ACTUAL_SECRET_ACCESS_KEY',
+    region: 'YOUR_ACTUAL_REGION'
+  },
+}

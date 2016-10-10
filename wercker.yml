@@ -1,0 +1,35 @@
+box:
+  id: node:6
+
+# wercker dev --expose-ports=true
+dev: #NODE_ENV=development
+  box:
+    id: node:6
+    ports:
+      - "1337"  # chrome UI for debugging
+      - "5858"  # port for node-inspector debugging socket
+  steps:
+    - npm-install
+    # you have two options for local development
+    # # 1. Run in local development debugging mode. auto re-run on files changes
+    - script:
+        name: start dev environment
+        code: npm run dev:debug
+
+    # # 2. run in BDD mode. auto re-run test cases on file changes
+    # - script:
+    #     name: start bdd environment
+    #     code: npm run bdd
+
+# wercker build
+build: #NODE_ENV=development
+  steps:
+    - npm-install
+    - npm-test
+
+# optional slack notifier
+# after-steps: # send notification to slack
+#   - slack-notifier:
+#       url: $SLACK_WEB_HOOK
+#       channel: updates
+#       username: Wercker Bot

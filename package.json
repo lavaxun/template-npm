@@ -1,0 +1,37 @@
+{
+  "name": "template-npm",
+  "version": "0.1.0",
+  "description": "module template for npm",
+  "main": "module.js",
+  "scripts": {
+    "dev": "gulp dev:test",
+    "test": "gulp test:once",
+    "bdd": "gulp bdd"
+  },
+  "keywords": [
+    "template",
+    "module",
+    "npm"
+  ],
+  "dependencies": {
+    "glob": "~7.1.0",
+    "lodash": "~4.16.2"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "chai": "~3.5.0",
+    "eslint": "~3.4.0",
+    "gulp-eslint": "~3.0.1",
+    "gulp-istanbul": "~1.1.1",
+    "gulp-load-plugins": "~1.2.4",
+    "gulp-mocha": "~3.0.0",
+    "istanbul": "~0.4.4",
+    "mocha": "~3.0.0",
+    "run-sequence": "~1.2.2",
+    "sinon": "~1.17.4",
+    "sinon-chai": "~2.8.0",
+    "supertest": "~2.0.0"
+  },
+  "author": "axnux",
+  "license": "MIT"
+}
